@@ -1,6 +1,6 @@
 import './Header.css';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { useUser } from '../context/UserContext.js';
 import { signOut } from '../services/auth.js';
 
