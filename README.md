@@ -1,4 +1,8 @@
-# Alchemy React Base Template
+# Reddit_2 (full CRUD app using react)
+![wireframe](wireframe.png)
+
+
+## Alchemy React Base Template
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
