@@ -7,7 +7,13 @@ const UserProvider = ({ children }) => {
   const currentUser = getUser();
   const [user, setUser] = useState(currentUser);
 
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
+  const parseUsername = (email) => {
+    return email.split('@')[0];
+  };
+
+  return (
+    <UserContext.Provider value={{ user, setUser, parseUsername }}>{children}</UserContext.Provider>
+  );
 };
 
 const useUser = () => {
