@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useUser } from './context/UserContext.js';
+import PostList from './components/Post/PostList.js';
 
 function App() {
   const { user } = useUser();
@@ -21,6 +22,7 @@ function App() {
                 </>
               </Route>
               <Route path="/auth/:type" component={Auth} />
+              <Route path="/posts" component={PostList} />
             </Switch>
           </Col>
         </Row>
