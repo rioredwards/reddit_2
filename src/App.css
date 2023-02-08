@@ -1,9 +1,4 @@
-* {
-  /* border: 1px solid red; */
-}
-
 .app {
-  text-align: center;
   background-color: var(--bg-light-secondary);
   min-height: 100vh;
 }
