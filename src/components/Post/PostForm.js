@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import '../../App.css';
 
-export default function PostForm({ title = '', body = '', submitHandler }) {
+export default function PostForm({ mode, title = '', body = '', submitHandler }) {
   const [titleInput, setTitleInput] = useState(title);
   const [bodyInput, setBodyInput] = useState(body);
 
@@ -14,7 +14,7 @@ export default function PostForm({ title = '', body = '', submitHandler }) {
         submitHandler({ title: titleInput, body: bodyInput });
       }}
     >
-      <h2 className="text-center">Edit Post</h2>
+      <h2 className="text-center">{mode} Post</h2>
       <Form.Group className="mb-3">
         <Form.Label>Title</Form.Label>
         <Form.Control

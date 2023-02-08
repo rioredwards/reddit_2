@@ -4,10 +4,11 @@ import Post from './Post.js';
 import '../../App.css';
 import { useUser } from '../../context/UserContext.js';
 import { Redirect } from 'react-router';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function PostList() {
   const { user } = useUser();
-
   const { posts, error, loading } = usePosts();
 
   if (!user) {
@@ -18,6 +19,9 @@ export default function PostList() {
 
   return (
     <div>
+      <Link to={`posts/new`}>
+        <Button>Add post</Button>
+      </Link>
       {posts.map((post) => (
         <Post key={post.id} {...post}>
           {post.title}

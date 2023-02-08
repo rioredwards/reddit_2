@@ -5,6 +5,7 @@ import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
 import PostList from './components/Post/PostList.js';
 import EditPost from './components/Post/EditPost.js';
+import NewPost from './components/Post/NewPost.js';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Switch>
               <Route path="/auth/:type" component={Auth} />
               <Route path="/posts/edit/:id" component={EditPost} />
+              <Route path="/posts/new" component={NewPost} />
               <Route path="/posts" component={PostList} />
               <Route path="*">
                 <Redirect to="/auth/sign-in" />
