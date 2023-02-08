@@ -18,7 +18,6 @@ export function usePosts() {
       setError(e.message);
       setLoading(false);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { posts, error, loading };

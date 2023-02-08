@@ -1,11 +1,11 @@
-import './Header.css';
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { useUser } from '../context/UserContext.js';
 import { signOut } from '../services/auth.js';
+import '../App.css';
 
 export default function Header() {
-  const { user, setUser } = useUser();
+  const { user, setUser, parseUsername } = useUser();
 
   const handleSignOut = async () => {
     try {
@@ -32,7 +32,7 @@ export default function Header() {
       </Navbar.Brand>
       {user && (
         <Nav className="mr-auto">
-          <Navbar.Text>{user.email}</Navbar.Text>
+          <Navbar.Text>{user && parseUsername(user.email)}</Navbar.Text>
           <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
         </Nav>
       )}

@@ -1,4 +1,3 @@
-import './Post.css';
 import React from 'react';
 import { Col, Container, ListGroup, Row } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +9,15 @@ import {
   faShare,
   faEllipsis,
 } from '@fortawesome/free-solid-svg-icons';
+import { useUser } from '../../context/UserContext.js';
+import { Link } from 'react-router-dom';
+import '../../App.css';
 
-export default function Post({ title, body }) {
+export default function Post({ id, title, body, user_id }) {
+  const { user, parseUsername } = useUser();
+
+  const owner = user && user.id === user_id;
+
   return (
     <ListGroup.Item as={'li'} className="post-container w-100 lead">
       <Container className="p-3">
@@ -29,6 +35,7 @@ export default function Post({ title, body }) {
               <Row className="align-items-center">
                 <Col className="gx-0">
                   <h3 className="my-1">{`${title}`}</h3>
+                  <p className="fs-6 my-1">{`u/${parseUsername(user.email)}`}</p>
                 </Col>
               </Row>
               <Row className="d-flex align-content-start">
@@ -38,8 +45,14 @@ export default function Post({ title, body }) {
               </Row>
               <Row>
                 <Col className="d-flex align-items-center justify-content-end gap-4">
-                  <FontAwesomeIcon icon={faTrash} size="xs" />
-                  <FontAwesomeIcon icon={faPencil} size="xs" />
+                  {owner && (
+                    <>
+                      <FontAwesomeIcon icon={faTrash} size="xs" />
+                      <Link to={`posts/edit/${id}`}>
+                        <FontAwesomeIcon icon={faPencil} size="xs" />
+                      </Link>
+                    </>
+                  )}
                   <FontAwesomeIcon icon={faShare} size="xs" />
                   <FontAwesomeIcon icon={faEllipsis} size="xs" />
                 </Col>
