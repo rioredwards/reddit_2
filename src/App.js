@@ -3,12 +3,10 @@ import Header from './components/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useUser } from './context/UserContext.js';
 import PostList from './components/Post/PostList.js';
 import EditPost from './components/Post/EditPost.js';
 
 function App() {
-  const { user } = useUser();
   return (
     <div className="app">
       <Header />
