@@ -5,6 +5,7 @@ import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useUser } from './context/UserContext.js';
 import PostList from './components/Post/PostList.js';
+import EditPost from './components/Post/EditPost.js';
 
 function App() {
   const { user } = useUser();
@@ -15,14 +16,12 @@ function App() {
         <Row className="d-flex justify-content-center">
           <Col sm={10} md={8} lg={6} className="border rounded px-3 py-3">
             <Switch>
-              <Route exact path="/">
-                <>
-                  {user && <Redirect to="/posts" />}
-                  {!user && <Redirect to="/auth/sign-in" />}
-                </>
-              </Route>
               <Route path="/auth/:type" component={Auth} />
+              <Route path="/posts/edit/:id" component={EditPost} />
               <Route path="/posts" component={PostList} />
+              <Route path="*">
+                <Redirect to="/auth/sign-in" />
+              </Route>
             </Switch>
           </Col>
         </Row>
