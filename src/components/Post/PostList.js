@@ -1,5 +1,6 @@
 import React from 'react';
 import { usePosts } from '../../hooks/usePosts.js';
+import Post from './Post.js';
 
 export default function PostList() {
   const { posts, error, loading } = usePosts();
@@ -10,7 +11,9 @@ export default function PostList() {
   return (
     <div>
       {posts.map((post) => (
-        <h1 key={post.id}>{post.title}</h1>
+        <Post key={post.id} {...post}>
+          {post.title}
+        </Post>
       ))}
     </div>
   );
