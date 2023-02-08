@@ -7,6 +7,7 @@ export function usePost(id) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     const fetchPost = async () => {
       try {
         const resp = await getPostDetail(id);
@@ -20,5 +21,5 @@ export function usePost(id) {
     fetchPost();
   }, [id]);
 
-  return { postDetail, error, loading };
+  return { postDetail, setPostDetail, error, loading, setLoading, setError };
 }

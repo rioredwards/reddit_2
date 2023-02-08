@@ -10,8 +10,8 @@ import {
   faEllipsis,
 } from '@fortawesome/free-solid-svg-icons';
 import { useUser } from '../../context/UserContext.js';
-import './Post.css';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 export default function Post({ id, title, body, user_id }) {
   const { user, parseUsername } = useUser();

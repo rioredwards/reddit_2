@@ -1,13 +1,32 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { Redirect, useHistory, useParams } from 'react-router';
 import { usePost } from '../../hooks/usePost.js';
+import PostForm from './PostForm.js';
+import { useUser } from '../../context/UserContext.js';
+import { updatePost } from '../../services/posts.js';
+import '../../App.css';
 
 export default function EditPost() {
+  const history = useHistory();
+  const { user } = useUser();
   const { id } = useParams();
-  const { postDetail, error, loading } = usePost(id);
+  const { postDetail, setLoading, error, setError, loading } = usePost(id);
 
+  if (!user) {
+    return <Redirect to="/auth/sign-in" />;
+  }
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
 
-  return <div>EditPost</div>;
+  const handleSubmit = async (newPost) => {
+    setLoading(true);
+    try {
+      await updatePost(id, newPost);
+      history.push('/posts');
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+
+  return <PostForm {...postDetail} submitHandler={handleSubmit} />;
 }
