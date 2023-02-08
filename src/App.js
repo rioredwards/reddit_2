@@ -16,7 +16,7 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <>
-                  {user && <Redirect to="/items" />}
+                  {user && <Redirect to="/posts" />}
                   {!user && <Redirect to="/auth/sign-in" />}
                 </>
               </Route>
