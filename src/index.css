@@ -1,3 +1,24 @@
+:root {
+  --bg-light-primary: #ffffff;
+  --bg-light-secondary: #dae0e6;
+  --bg-dark-primary: #030303;
+  --bg-dark-secondary: #1a1a1b;
+
+  --text-light-primary: #1c1c1c;
+  --text-light-secondary: #888a8c;
+  --text-dark-primary: #d8dadc;
+  --text-dark-secondary: #818384;
+
+  --border-light-primary: #f00;
+  --border-light-secondary: #f00;
+  --border-dark-primary: #f00;
+  --border-dark-secondary: #f00;
+
+  --button-primary: #ff4500;
+  --button-light-secondary: #0279d3;
+  --button-dark-secondary: #d8dadc;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
