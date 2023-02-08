@@ -15,7 +15,7 @@ export default function PostForm({ title = '', body = '', submitHandler }) {
       }}
     >
       <h2 className="text-center">Edit Post</h2>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3">
         <Form.Label>Title</Form.Label>
         <Form.Control
           required
@@ -25,7 +25,7 @@ export default function PostForm({ title = '', body = '', submitHandler }) {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3">
         <Form.Label>Body</Form.Label>
         <Form.Control
           required

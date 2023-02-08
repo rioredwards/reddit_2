@@ -10,7 +10,7 @@ export async function getPostDetail(id) {
   return checkError(resp);
 }
 
-export async function updatePost(id, { title, description }) {
-  const resp = await client.from('posts').update({ title, description }).match({ id }).single();
+export async function updatePost(id, { title, body }) {
+  const resp = await client.from('posts').update({ title, body }).match({ id }).single();
   return checkError(resp);
 }
