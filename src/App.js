@@ -3,7 +3,6 @@ import Header from './components/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
-import PostList from './components/Post/PostList.js';
 import EditPost from './components/Post/EditPost.js';
 import NewPost from './components/Post/NewPost.js';
 import Posts from './components/Post/Posts.js';

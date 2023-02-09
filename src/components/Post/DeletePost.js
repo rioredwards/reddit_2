@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import { Redirect, useHistory, useParams } from 'react-router';
-import { usePost } from '../../hooks/usePost.js';
-import PostForm from './PostForm.js';
 import { useUser } from '../../context/UserContext.js';
 import { deletePost } from '../../services/posts.js';
-import '../../App.css';
 import { Button, Modal } from 'react-bootstrap';
+import '../../App.css';
 
 export default function DeletePost() {
-  console.log('in DeletePost');
   const [error, setError] = useState(null);
   const history = useHistory();
   const { user } = useUser();
@@ -25,7 +22,6 @@ export default function DeletePost() {
 
   const handleSubmit = async () => {
     try {
-      console.log('id', id);
       await deletePost(id);
       history.push('/posts');
     } catch (e) {

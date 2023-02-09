@@ -1,14 +1,6 @@
 import React from 'react';
 import { Button, Container } from 'react-bootstrap';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-  Redirect,
-} from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { usePosts } from '../../hooks/usePosts.js';
 import DeletePost from './DeletePost.js';
@@ -18,8 +10,6 @@ export default function Posts() {
   const { user } = useUser();
   const { posts, error, loading } = usePosts();
   let match = useRouteMatch();
-
-  console.log('rendering posts', Date.now());
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
