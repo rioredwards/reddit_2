@@ -19,3 +19,8 @@ export async function updatePost(id, { title, body }) {
   const resp = await client.from('posts').update({ title, body }).match({ id }).single();
   return checkError(resp);
 }
+
+export async function deletePost(id) {
+  const resp = await client.from('posts').delete().match({ id }).single();
+  return checkError(resp);
+}

@@ -7,21 +7,9 @@ import { Redirect } from 'react-router';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export default function PostList() {
-  const { user } = useUser();
-  const { posts, error, loading } = usePosts();
-
-  if (!user) {
-    return <Redirect to="/auth/sign-in" />;
-  }
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>{error}</h1>;
-
+export default function PostList({ posts, loading, error }) {
   return (
     <div>
-      <Link to={`posts/new`}>
-        <Button>Add post</Button>
-      </Link>
       {posts.map((post) => (
         <Post key={post.id} {...post}>
           {post.title}

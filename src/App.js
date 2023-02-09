@@ -6,6 +6,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import PostList from './components/Post/PostList.js';
 import EditPost from './components/Post/EditPost.js';
 import NewPost from './components/Post/NewPost.js';
+import Posts from './components/Post/Posts.js';
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
           <Col sm={10} md={8} lg={6} className="border rounded px-3 py-3">
             <Switch>
               <Route path="/auth/:type" component={Auth} />
-              <Route path="/posts/edit/:id" component={EditPost} />
+              <Route path="/posts/:id/edit" component={EditPost} />
               <Route path="/posts/new" component={NewPost} />
-              <Route path="/posts" component={PostList} />
+              <Route path="/posts" component={Posts} />
               <Route path="*">
                 <Redirect to="/auth/sign-in" />
               </Route>

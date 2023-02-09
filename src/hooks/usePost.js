@@ -8,6 +8,7 @@ export function usePost(id) {
 
   useEffect(() => {
     setLoading(true);
+
     const fetchPost = async () => {
       try {
         const resp = await getPostDetail(id);
