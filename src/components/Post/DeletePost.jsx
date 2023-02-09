@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect, useHistory, useParams } from 'react-router';
 import { useUser } from '../../context/UserContext.js';
-import { deletePost } from '../../services/posts.js';
 import { Button, Modal } from 'react-bootstrap';
 import '../../App.css';
-import { usePosts } from '../../hooks/usePosts.js';
 import { usePost } from '../../hooks/usePost.js';
 
 export default function DeletePost() {
   const history = useHistory();
   const { user } = useUser();
   const { id } = useParams();
-  console.log('id', id);
   const { handleDeletePost, error } = usePost(id);
 
   const handleClose = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';

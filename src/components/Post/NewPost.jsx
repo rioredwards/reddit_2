@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { Redirect, useHistory } from 'react-router';
+import React from 'react';
+import { Redirect } from 'react-router';
 import PostForm from './PostForm';
 import { useUser } from '../../context/UserContext.js';
-import { createPost } from '../../services/posts.js';
 import '../../App.css';
 import { usePosts } from '../../hooks/usePosts.js';
 
