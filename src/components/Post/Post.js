@@ -13,10 +13,10 @@ import { useUser } from '../../context/UserContext.js';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 
-export default function Post({ id, title, body, user_id }) {
-  const { user, parseUsername } = useUser();
+export default function Post({ id, title, body, username, user_id }) {
+  const { user } = useUser();
 
-  const owner = user && user.id === user_id;
+  const owner = user.id === user_id;
 
   return (
     <ListGroup.Item as={'li'} className="post-container w-100 lead">
@@ -35,7 +35,7 @@ export default function Post({ id, title, body, user_id }) {
               <Row className="align-items-center">
                 <Col className="gx-0">
                   <h3 className="my-1">{`${title}`}</h3>
-                  <p className="fs-6 my-1">{`u/${parseUsername(user.email)}`}</p>
+                  <p className="fs-6 my-1">{`u/${username}`}</p>
                 </Col>
               </Row>
               <Row className="d-flex align-content-start">

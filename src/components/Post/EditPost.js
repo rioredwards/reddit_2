@@ -28,5 +28,5 @@ export default function EditPost() {
     }
   };
 
-  return <PostForm {...postDetail} submitHandler={handleSubmit} />;
+  return <PostForm mode="Edit" submitHandler={handleSubmit} {...postDetail} />;
 }
