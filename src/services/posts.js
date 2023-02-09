@@ -10,8 +10,8 @@ export async function getPostDetail(id) {
   return checkError(resp);
 }
 
-export async function createPost({ title, body }) {
-  const resp = await client.from('posts').insert({ title, body }).single();
+export async function createPost({ title, body, username }) {
+  const resp = await client.from('posts').insert({ title, body, username }).single();
   return checkError(resp);
 }
 

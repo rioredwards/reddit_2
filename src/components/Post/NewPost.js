@@ -8,7 +8,7 @@ import '../../App.css';
 export default function NewPost() {
   const [error, setError] = useState(null);
   const history = useHistory();
-  const { user } = useUser();
+  const { user, parseUsername } = useUser();
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
@@ -24,5 +24,5 @@ export default function NewPost() {
     }
   };
 
-  return <PostForm mode="New" submitHandler={handleSubmit} />;
+  return <PostForm mode="New" username={parseUsername(user.email)} submitHandler={handleSubmit} />;
 }

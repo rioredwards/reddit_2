@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import '../../App.css';
 
-export default function PostForm({ mode, title = '', body = '', submitHandler }) {
+export default function PostForm({ mode, title = '', body = '', username, submitHandler }) {
   const [titleInput, setTitleInput] = useState(title);
   const [bodyInput, setBodyInput] = useState(body);
 
@@ -11,7 +11,7 @@ export default function PostForm({ mode, title = '', body = '', submitHandler })
       className="form-container p-3"
       onSubmit={(e) => {
         e.preventDefault();
-        submitHandler({ title: titleInput, body: bodyInput });
+        submitHandler({ title: titleInput, body: bodyInput, username });
       }}
     >
       <h2 className="text-center">{mode} Post</h2>
