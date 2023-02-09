@@ -4,12 +4,15 @@ import { useUser } from '../../context/UserContext.js';
 import { deletePost } from '../../services/posts.js';
 import { Button, Modal } from 'react-bootstrap';
 import '../../App.css';
+import { usePosts } from '../../hooks/usePosts.js';
+import { usePost } from '../../hooks/usePost.js';
 
 export default function DeletePost() {
-  const [error, setError] = useState(null);
   const history = useHistory();
   const { user } = useUser();
   const { id } = useParams();
+  console.log('id', id);
+  const { handleDeletePost, error } = usePost(id);
 
   const handleClose = () => {
     history.push('/posts');
@@ -19,15 +22,6 @@ export default function DeletePost() {
     return <Redirect to="/auth/sign-in" />;
   }
   if (error) return <h1>{error}</h1>;
-
-  const handleSubmit = async () => {
-    try {
-      await deletePost(id);
-      history.push('/posts');
-    } catch (e) {
-      setError(e.message);
-    }
-  };
 
   return (
     <Modal centered show={true} onHide={handleClose}>
@@ -39,7 +33,7 @@ export default function DeletePost() {
         <Button variant="secondary" onClick={handleClose}>
           Cancel
         </Button>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="primary" type="submit" onClick={() => handleDeletePost(id)}>
           Delete post
         </Button>
       </Modal.Footer>

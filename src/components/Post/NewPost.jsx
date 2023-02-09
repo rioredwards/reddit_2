@@ -4,25 +4,18 @@ import PostForm from './PostForm';
 import { useUser } from '../../context/UserContext.js';
 import { createPost } from '../../services/posts.js';
 import '../../App.css';
+import { usePosts } from '../../hooks/usePosts.js';
 
 export default function NewPost() {
-  const [error, setError] = useState(null);
-  const history = useHistory();
   const { user, parseUsername } = useUser();
+  const { handleCreatePost, error } = usePosts();
 
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
   if (error) return <h1>{error}</h1>;
 
-  const handleSubmit = async (newPost) => {
-    try {
-      await createPost(newPost);
-      history.push('/posts');
-    } catch (e) {
-      setError(e.message);
-    }
-  };
-
-  return <PostForm mode="New" username={parseUsername(user.email)} submitHandler={handleSubmit} />;
+  return (
+    <PostForm mode="New" username={parseUsername(user.email)} submitHandler={handleCreatePost} />
+  );
 }
