@@ -10,13 +10,11 @@ export function usePosts() {
 
   useEffect(() => {
     const handleGetPosts = async () => {
+      setLoading(true);
       try {
-        const fetchPosts = async () => {
-          const data = await getPosts();
-          setPosts(data);
-          setLoading(false);
-        };
-        fetchPosts();
+        const resp = await getPosts();
+        setPosts(resp);
+        setLoading(false);
       } catch (e) {
         setError(e.message);
         setLoading(false);
