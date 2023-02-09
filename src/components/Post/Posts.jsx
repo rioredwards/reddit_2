@@ -3,8 +3,8 @@ import { Button, Container } from 'react-bootstrap';
 import { Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { usePosts } from '../../hooks/usePosts.js';
-import DeletePost from './DeletePost.js';
-import PostList from './PostList.js';
+import DeletePost from './DeletePost';
+import PostList from './PostList';
 
 export default function Posts() {
   const { user } = useUser();

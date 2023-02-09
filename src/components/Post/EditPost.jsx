@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect, useHistory, useParams } from 'react-router';
 import { usePost } from '../../hooks/usePost.js';
-import PostForm from './PostForm.js';
-import { useUser } from '../../context/UserContext.js';
+import PostForm from './PostForm';
+import { useUser } from '../../context/UserContext';
 import { updatePost } from '../../services/posts.js';
 import '../../App.css';
 

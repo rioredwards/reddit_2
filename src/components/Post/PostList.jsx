@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from './Post.js';
+import Post from './Post';
 import '../../App.css';
 
 export default function PostList({ posts }) {
