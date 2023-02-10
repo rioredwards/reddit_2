@@ -8,7 +8,7 @@ import PostList from './PostList';
 
 export default function Posts() {
   const { user } = useUser();
-  const { posts, error, loading } = usePosts();
+  const { posts, setPosts, error, loading } = usePosts();
   let match = useRouteMatch();
 
   if (!user) {
@@ -29,7 +29,7 @@ export default function Posts() {
 
       <Switch>
         <Route path={`${match.path}/:id/delete`}>
-          <DeletePost />
+          <DeletePost setPosts={setPosts} />
         </Route>
       </Switch>
     </>

@@ -12,12 +12,7 @@ export default function PostList({ posts }) {
           <br /> Use the form above to add a new ToDo!
         </Alert>
       )}
-      {!!posts.length &&
-        posts.map((post) => (
-          <Post key={post.id} {...post}>
-            {post.title}
-          </Post>
-        ))}
+      {!!posts.length && posts.map((post) => <Post key={post.id} {...post}></Post>)}
     </div>
   );
 }

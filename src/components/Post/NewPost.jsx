@@ -17,7 +17,8 @@ export default function NewPost() {
 
   const handleCreatePost = async (newPost) => {
     try {
-      await createPost(newPost);
+      const resp = await createPost(newPost);
+      console.log('resp', resp);
       history.push('/posts');
     } catch (e) {
       setError(e.message);
