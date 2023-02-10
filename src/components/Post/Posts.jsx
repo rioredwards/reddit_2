@@ -4,6 +4,8 @@ import { Switch, Route, Link, useRouteMatch, Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
 import { usePosts } from '../../hooks/usePosts.js';
 import DeletePost from './DeletePost';
+import EditPost from './EditPost.jsx';
+import NewPost from './NewPost.jsx';
 import PostList from './PostList';
 
 export default function Posts() {
@@ -25,11 +27,19 @@ export default function Posts() {
         </Link>
       </Container>
 
-      <PostList posts={posts} />
-
       <Switch>
+        <Route path="/posts/new">
+          <NewPost setPosts={setPosts} />
+        </Route>
+        <Route path="/posts/:id/edit">
+          <EditPost setPosts={setPosts} />
+        </Route>
         <Route path={`${match.path}/:id/delete`}>
           <DeletePost setPosts={setPosts} />
+          <PostList posts={posts} />
+        </Route>
+        <Route exact path="/posts">
+          <PostList posts={posts} />
         </Route>
       </Switch>
     </>

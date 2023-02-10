@@ -5,7 +5,7 @@ import { useUser } from '../../context/UserContext.js';
 import '../../App.css';
 import { createPost } from '../../services/posts.js';
 
-export default function NewPost() {
+export default function NewPost({ setPosts }) {
   const [error, setError] = useState(null);
   const { user, parseUsername } = useUser();
   const history = useHistory();
@@ -18,7 +18,7 @@ export default function NewPost() {
   const handleCreatePost = async (newPost) => {
     try {
       const resp = await createPost(newPost);
-      console.log('resp', resp);
+      setPosts((prev) => [resp, ...prev]);
       history.push('/posts');
     } catch (e) {
       setError(e.message);

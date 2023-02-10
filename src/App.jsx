@@ -16,8 +16,6 @@ function App() {
           <Col sm={10} md={8} lg={6} className="border rounded px-3 py-3">
             <Switch>
               <Route path="/auth/:type" component={Auth} />
-              <Route path="/posts/:id/edit" component={EditPost} />
-              <Route path="/posts/new" component={NewPost} />
               <Route path="/posts" component={Posts} />
               <Route path="*">
                 <Redirect to="/auth/sign-in" />

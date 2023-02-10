@@ -6,7 +6,7 @@ import { useUser } from '../../context/UserContext';
 import '../../App.css';
 import { updatePost } from '../../services/posts.js';
 
-export default function EditPost() {
+export default function EditPost({ setPosts }) {
   const { user } = useUser();
   const { id } = useParams();
   const { postDetail, error, setError, loading } = usePostDetail(id);
@@ -20,7 +20,14 @@ export default function EditPost() {
 
   const handleUpdatePost = async (newPost) => {
     try {
-      await updatePost(id, newPost);
+      const resp = await updatePost(id, newPost);
+      setPosts((prev) => {
+        const newPosts = [...prev];
+        const idx = newPosts.findIndex((post) => post.id === parseInt(id));
+        newPosts[idx] = resp;
+        return newPosts;
+      });
+
       history.push('/posts');
     } catch (e) {
       setError(e.message);
