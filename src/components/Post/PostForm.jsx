@@ -16,8 +16,9 @@ export default function PostForm({ mode, title = '', body = '', username, submit
     >
       <h2 className="text-center">{mode} Post</h2>
       <Form.Group className="mb-3">
-        <Form.Label>Title</Form.Label>
+        <Form.Label htmlFor="title">Title</Form.Label>
         <Form.Control
+          id="title"
           required
           placeholder="Enter title"
           value={titleInput}
@@ -26,8 +27,9 @@ export default function PostForm({ mode, title = '', body = '', username, submit
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Body</Form.Label>
+        <Form.Label htmlFor="body">Body</Form.Label>
         <Form.Control
+          id="body"
           required
           as="textarea"
           rows={3}
