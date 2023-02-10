@@ -48,7 +48,7 @@ export default function Auth() {
           </Nav.Item>
         </Nav>
         <Form.Group className="mb-3 mt-4">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label htmlFor="emailInput">Email address</Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -58,7 +58,7 @@ export default function Auth() {
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label htmlFor="passwordInput">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Password"

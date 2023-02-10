@@ -49,10 +49,20 @@ export default function Post({ id, title, body, username, user_id }) {
                   {owner && (
                     <>
                       <Link to={`${match.url}/${id}/delete`}>
-                        <FontAwesomeIcon icon={faTrash} size="xs" />
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          size="xs"
+                          title="deleteIcon"
+                          alt="deleteIcon"
+                        />
                       </Link>
                       <Link to={`${match.url}/${id}/edit`}>
-                        <FontAwesomeIcon icon={faPencil} size="xs" />
+                        <FontAwesomeIcon
+                          icon={faPencil}
+                          size="xs"
+                          title="editIcon"
+                          alt="editIcon"
+                        />
                       </Link>
                     </>
                   )}
