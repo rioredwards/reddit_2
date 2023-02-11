@@ -3,8 +3,6 @@ import Header from './components/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
-import EditPost from './components/Post/EditPost';
-import NewPost from './components/Post/NewPost';
 import Posts from './components/Post/Posts';
 
 function App() {
