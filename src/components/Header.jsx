@@ -25,7 +25,7 @@ export default function Header() {
           width="30"
           height="30"
           className="d-inline-block align-top"
-          alt="ToDo Logo"
+          alt="Reddit Logo"
         />
         {'  '}
         Reddit

@@ -1,11 +1,17 @@
 import React from 'react';
 import Post from './Post';
 import '../../App.css';
-import { Alert } from 'react-bootstrap';
+import { Alert, Button, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function PostList({ posts }) {
   return (
-    <div>
+    <>
+      <Container className="d-flex mb-3">
+        <Link className="mx-auto" to={`posts/new`}>
+          <Button>Add post</Button>
+        </Link>
+      </Container>
       {!posts.length && (
         <Alert variant="warning">
           👋 Looks like your list is empty!
@@ -13,11 +19,9 @@ export default function PostList({ posts }) {
         </Alert>
       )}
       {!!posts.length &&
-        posts.map((post) => (
-          <Post key={post.id} {...post}>
-            {post.title}
-          </Post>
-        ))}
-    </div>
+        posts.map((post) => {
+          return <Post key={post.id} view="list" postData={post} />;
+        })}
+    </>
   );
 }

@@ -3,8 +3,6 @@ import Header from './components/Header';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Auth from './components/Auth';
 import { Col, Container, Row } from 'react-bootstrap';
-import EditPost from './components/Post/EditPost';
-import NewPost from './components/Post/NewPost';
 import Posts from './components/Post/Posts';
 
 function App() {
@@ -16,8 +14,6 @@ function App() {
           <Col sm={10} md={8} lg={6} className="border rounded px-3 py-3">
             <Switch>
               <Route path="/auth/:type" component={Auth} />
-              <Route path="/posts/:id/edit" component={EditPost} />
-              <Route path="/posts/new" component={NewPost} />
               <Route path="/posts" component={Posts} />
               <Route path="*">
                 <Redirect to="/auth/sign-in" />

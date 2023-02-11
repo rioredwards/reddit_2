@@ -5,7 +5,7 @@ import { Button, Modal } from 'react-bootstrap';
 import '../../App.css';
 import { deletePost } from '../../services/posts.js';
 
-export default function DeletePost() {
+export default function DeletePost({ setPosts }) {
   const history = useHistory();
   const { user } = useUser();
   const { id } = useParams();
@@ -23,6 +23,12 @@ export default function DeletePost() {
   const handleDeletePost = async () => {
     try {
       await deletePost(id);
+      setPosts((prev) => {
+        const newPosts = [...prev];
+        const idx = newPosts.findIndex((post) => post.id === parseInt(id));
+        newPosts.splice(idx, 1);
+        return newPosts;
+      });
       history.push('/posts');
     } catch (e) {
       setError(e.message);

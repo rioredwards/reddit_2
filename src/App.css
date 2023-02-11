@@ -9,3 +9,8 @@
 .form-container {
   background-color: var(--bg-light-primary) !important;
 }
+
+.postLink {
+  color: var(--text-light-primary) !important;
+  text-decoration: none;
+}
