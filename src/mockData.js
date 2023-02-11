@@ -33,3 +33,11 @@ export const mockPosts = [
     username: 'user1',
   },
 ];
+
+export const mockNewPost = {
+  id: 3,
+  title: 'title3',
+  body: 'body3',
+  user_id: '0',
+  username: 'user0',
+};

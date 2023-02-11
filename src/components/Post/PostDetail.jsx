@@ -9,14 +9,11 @@ export default function PostDetail() {
   const { id } = useParams();
   const { postDetail, error, loading } = usePostDetail(id);
 
-  console.log('id (in useParams)', id);
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
   if (loading) return <h1>Loading...</h1>;
   if (error) return <h1>{error}</h1>;
-
-  console.log('postDetail', postDetail);
 
   return (
     <>

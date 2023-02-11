@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from './Post';
 import '../../App.css';
-import { Alert, Button, Container, ListGroup } from 'react-bootstrap';
+import { Alert, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function PostList({ posts }) {
