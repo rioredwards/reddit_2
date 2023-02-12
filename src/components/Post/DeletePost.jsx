@@ -24,10 +24,7 @@ export default function DeletePost({ setPosts }) {
     try {
       await deletePost(id);
       setPosts((prev) => {
-        const newPosts = [...prev];
-        const idx = newPosts.findIndex((post) => post.id === parseInt(id));
-        newPosts.splice(idx, 1);
-        return newPosts;
+        return prev.filter((post) => post.id !== parseInt(id));
       });
       history.push('/posts');
     } catch (e) {

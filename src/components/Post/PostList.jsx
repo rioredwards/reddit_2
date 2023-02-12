@@ -15,7 +15,7 @@ export default function PostList({ posts }) {
       {!posts.length && (
         <Alert variant="warning">
           👋 Looks like your list is empty!
-          <br /> Use the form above to add a new ToDo!
+          <br /> Use the form above to add a new Post!
         </Alert>
       )}
       {!!posts.length &&
